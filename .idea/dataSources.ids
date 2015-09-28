@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - zoo_db@localhost" uuid="31097e34-c7ea-48de-8f4b-ff68b4af1898">
+    <database-info product="MySQL" version="5.6.26-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.36 ( Revision: 4fc1f969f740409a4e03750316df2c0e429f3dc8 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="zoo_db"/>
+    <table name="accessories" schema="" catalog="zoo_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="accs_id" table="animals" schema="" catalog="zoo_db" columns="accs_id"/>
+    </table>
+    <table name="animals" schema="" catalog="zoo_db" type="TABLE">
+      <column name="idanimals" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="food_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="accs_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="type" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idanimals"/>
+      <foreign-key name="accs_id" columns="accs_id" ref-table="accessories" ref-schema="" ref-catalog="zoo_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="food_id" columns="food_id" ref-table="food" ref-schema="" ref-catalog="zoo_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="accs_id_idx" unique="false" columns="accs_id"/>
+      <index name="food_id_idx" unique="false" columns="food_id"/>
+    </table>
+    <table name="food" schema="" catalog="zoo_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="food_id" table="animals" schema="" catalog="zoo_db" columns="food_id"/>
+    </table>
+  </data-source>
+</component>
