@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Update role</title>
+    <title>Update food</title>
     <style>
         legend {
             font-size: 150%;
@@ -25,7 +25,7 @@
 <div class="form">
     <fieldset>
         <legend align="center">Food update:</legend>
-        <form action="/update_role" method="post">
+        <form action="/update_food" method="post">
             Item name:<input type="text" name="foodName" value="${food.itemName}">
             <input type="hidden" name="id" value="${food.id}">
             <input type="submit" value="Update">

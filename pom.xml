@@ -131,7 +131,7 @@
     </dependencies>
 
     <build>
-        <finalName>HelloWorldApp</finalName>
+        <finalName>zooShopApp</finalName>
         <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
@@ -149,6 +149,13 @@
                     <includes>
                         <include>**/*Test.java</include>
                     </includes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>

@@ -2,6 +2,7 @@ package com.kirill.app.dao;
 
 import com.kirill.app.connectors.Connector;
 import com.kirill.app.models.Food;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,12 +14,13 @@ import java.util.List;
  * @author Admin
  * @since 24.09.2015
  */
+@Repository
 public class FoodDAOImpl implements FoodDAO {
 
-    public static final String CREATE_FOOD = "insert food set id = ?, name = ?";
+    public static final String CREATE_FOOD = "insert food set id = ?, title = ?";
     public static final String GET_ALL = "select * from food";
     public static final String GET_BY_ID = "select * from food where id = ?";
-    public static final String UPDATE_FOOD = "update food set name = ? where id = ?";
+    public static final String UPDATE_FOOD = "update food set title = ? where id = ?";
     public static final String DELETE_FOOD = "delete from food where id = ?";
 
     private static Connection connection;

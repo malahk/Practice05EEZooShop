@@ -1,6 +1,7 @@
 package com.kirill.app.dao;
 
 import com.kirill.app.models.Animals;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

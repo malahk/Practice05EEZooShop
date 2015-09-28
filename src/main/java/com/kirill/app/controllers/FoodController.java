@@ -29,7 +29,7 @@ public class FoodController {
     @RequestMapping(value = "create_food", method = RequestMethod.GET)
     public ModelAndView foodShow() {
 
-        return new ModelAndView("foodCreateForm");
+        return new ModelAndView("foodCreate");
     }
 
     @RequestMapping(value = "create_food", method = RequestMethod.POST)
@@ -39,12 +39,12 @@ public class FoodController {
         String foodName = request.getParameter("foodName");
         food.setItemName(foodName);
         foodImpl.create(food);
-        redirectAttributes.addFlashAttribute("message", String.format("New role %s successfully created!", food.getItemName()));
+        redirectAttributes.addFlashAttribute("message", String.format("New food %s successfully created!", food.getItemName()));
 
         return "redirect:/food_list";
     }
 
-    @RequestMapping(value = "role_list", method = RequestMethod.GET)
+    @RequestMapping(value = "food_list", method = RequestMethod.GET)
     public ModelAndView foodList() {
         List<Food> feed = this.foodDAO.getAll();
         ModelAndView mav = new ModelAndView("foodList");

@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Food List</title>
+    <title>Accs List</title>
     <style>
         table, th, td {
             border: 2px solid black;
@@ -17,26 +17,26 @@
 <body>
 <h1>${message}</h1>
 <fieldset>
-    <legend>List of feeds:</legend>
+    <legend>List of accs:</legend>
     <table>
         <tr>
             <th>Item name</th>
             <th>Action</th>
         </tr>
-        <c:forEach var="food" items="${foodList}">
+        <c:forEach var="accs" items="${accsList}">
             <p>
                 <tr>
-                    <td>${food.itemName}</td>
+                    <td>${accs.accsName}</td>
                     <td>
                         <a href="
-      <c:url value="/update_food">
-        <c:param name="id" value="${food.id}"/>
+      <c:url value="/update_accs">
+        <c:param name="id" value="${accs.id}"/>
       </c:url>
       " >Edit</a>
 
                         <a href="
-      <c:url value="/delete_food">
-        <c:param name="id" value="${food.id}"/>
+      <c:url value="/delete_accs">
+        <c:param name="id" value="${accs.id}"/>
       </c:url>
       " >Delete</a>
                     </td>
@@ -45,7 +45,7 @@
         </c:forEach>
     </table>
     <br>
-    <input type="button" onclick="location.href='/create_food';" value="Add new feed" />
+    <input type="button" onclick="location.href='/create_accs';" value="Add new accs" />
 </fieldset>
 </body>
 </html>

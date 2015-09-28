@@ -1,15 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 22.07.2015
-  Time: 13:13
-  To change this template use File | Settings | File Templates.
---%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Create new food</title>
+    <title>Update accs</title>
     <style>
         legend {
             font-size: 150%;
@@ -30,15 +22,14 @@
     </style>
 </head>
 <body>
-<h1 align="center">${message}</h1>
 <div class="form">
     <fieldset>
-        <legend align="center">Create food:</legend>
-        <form action="/create_food" method="post">
-            Role Name:<input type="text" name="foodName" >
-            <input type="submit" value="Create">
+        <legend align="center">Accs update:</legend>
+        <form action="/update_accs" method="post">
+            Item name:<input type="text" name="accsName" value="${accs.accsName}">
+            <input type="hidden" name="id" value="${accs.id}">
+            <input type="submit" value="Update">
             <input type="reset" value="Clean">
-            <input type="button" onclick="location.href='/food_list';" value="Update existing" />
         </form>
     </fieldset>
 </div>

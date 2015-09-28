@@ -2,6 +2,7 @@ package com.kirill.app.dao;
 
 import com.kirill.app.connectors.Connector;
 import com.kirill.app.models.Animals;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
  * @author Admin
  * @since 24.09.2015
  */
+@Repository
 public class AnimalsDAOImpl implements AnimalsDAO {
 
     public static final String CREATE_ANIMAL = "insert animals set id = ?, name = ?, price = ?, food_id = ?, accs_id = ?, type = ?";

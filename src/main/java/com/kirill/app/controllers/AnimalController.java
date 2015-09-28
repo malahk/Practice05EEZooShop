@@ -55,7 +55,7 @@ public class AnimalController {
     }
 
     @RequestMapping(value = "update_animal", method = RequestMethod.GET)
-    public ModelAndView updateUser(@RequestParam(value="id") Integer id) {
+    public ModelAndView updateAnimal(@RequestParam(value="id") Integer id) {
         ModelAndView mav = new ModelAndView("animalUpdateForm");
         mav.addObject(this.animalsDAO.getAnimal(id));
 
@@ -63,7 +63,7 @@ public class AnimalController {
     }
 
     @RequestMapping(value = "update_animal", method = RequestMethod.POST)
-    public String updateUser(HttpServletRequest request, final RedirectAttributes redirectAttributes) {
+    public String updateAnimal(HttpServletRequest request, final RedirectAttributes redirectAttributes) {
         AnimalsDAO animalImpl = new AnimalsDAOImpl();
         Animals animal = extractAnimalFromRequest(request);
         animalImpl.update(animal);
@@ -79,15 +79,15 @@ public class AnimalController {
         return "redirect:/animal_list";
     }
 
-    @RequestMapping(value = "delete_user", method = RequestMethod.GET)
+    @RequestMapping(value = "delete_animal", method = RequestMethod.GET)
     public String deleteUser(HttpServletRequest request, final RedirectAttributes redirectAttributes) {
         String animalId = request.getParameter("id");
         AnimalsDAO animalsImpl = new AnimalsDAOImpl();
         String name = animalsImpl.getAnimal(Integer.valueOf(animalId)).getName();
         animalsImpl.delete(animalsImpl.getAnimal(Integer.valueOf(animalId)));
-        redirectAttributes.addFlashAttribute("message", String.format("User %s %s successfully deleted!", name));
+        redirectAttributes.addFlashAttribute("message", String.format("Animal %s %s successfully deleted!", name));
 
-        return "redirect:/user_list";
+        return "redirect:/animal_list";
     }
 
     private Animals extractAnimalFromRequest(HttpServletRequest request){
